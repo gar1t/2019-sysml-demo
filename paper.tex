@@ -66,7 +66,7 @@ three ways ways:
 \item Project maintainers use \emph{Guild files}---simple YAML files
   included with project source---to document and automate project
   capabilities such as supported models, operations, hyperparameter
-  defaults and search space for optimization experiments.
+  defaults and optimization search space.
 
 \item Project maintainers create Python \emph{packages} that are
   uploaded to PyPI and installed by others for reproducing results.
@@ -81,23 +81,26 @@ user interface is a command line interface, which integrates
 efficiently with other system tools. Guild additionally provides a
 graphical, web based dashboard to explore and analyze runs and
 integration with TensorBoard. Guild also exposes functionality in a
-Python API for application developers.
+Python API for advanced scripting and application developers, though
+this interface is not required for general use.
 
 \textbf{Cross Framework and Language Support.} Guild supports any
 learning script that generates experiment results. Models may be
-implemented in any language, framework, or software library.
+implemented in any framework or library including but not limited to
+TensorFlow, PyTorch, scikit-learn, Keras, MXNet, or language such as
+Python, R, Go, and Java.
 
 \subsection{Reproducibility}
 
-Guild facilitates reproducibility by automating experiments,
-systematically capturing results, and providing tools for analysis and
-comparison. A typical workflow in Guild is:
+Guild supports reproducibility by automating experiments, capturing
+results, and providing tools for analysis, comparison, and sharing. A
+typical workflow in Guild is:
 
 \begin{enumerate}[noitemsep, topsep=0pt, partopsep=0pt]
 \item Run trials for a baseline model
 \item Run trials for novel work
 \item Compare and analyze results
-\item Optionally package and distribute project code to further
+\item Optionally package and distribute project work to further
   simplify reproducibility
 \end{enumerate}
 
@@ -122,21 +125,20 @@ machine learning. Prominent projects include:
 Automation tools in machine learning commonly require tool-specific
 changes to project source code. This generally includes adoption of a
 Python API for controlling experiments, accessing hyperparameters and
-logging results. Automation tools may also require additional system
-software such as databases, container management systems, and job
-schedulers.
+logging results. Automation tools may further require additional
+system software such as databases, container management systems, and
+job schedulers.
 
 Each requirement that a tool imposes on a user presents a barrier to
 the goal of systematic machine learning. In some cases, researchers
-may view the cost of automation in support reproducibility to
-outweight the benefit.
+and engineers may view the cost of supporting reproducibility to
+outweigh the benefits.
 
-To encourage systematic machine learning, Guild does not require
-changes to user code or installation and maintenance of external
-systems. Users run their training scripts without modification. For
-example, an unmodified Python script \texttt{train.py} that supports
-hyperparameters \texttt{n\_layers} and \texttt{lr} may be run using a
-command such as:
+To encourage systematic machine learning, Guild runs unmodified
+learning scripts without requiring the installation and maintenance of
+external systems. Once Guild is installed, for example, an unmodified
+Python script \texttt{train.py} that supports hyperparameters
+\texttt{n\_layers} and \texttt{lr} can be run using:
 
 {\footnotesize
 \begin{verbatim}
@@ -147,18 +149,17 @@ With this command, the user generates a unique experiment with the
 specified hyperparameters, which can be analyzed and compared to other
 trials.
 
-Guild supports this workflow without external dependencies.
-
 Guild additionally supports easy packaging, distribution, and
-installation of research work in the support of reproducibility. To
-our knowledge, no other tool provides this feature.
+installation of research work in the support of machine learning
+reproducibility. To our knowledge, no other tool provides this
+feature.
 
 \section{Demonstration}
 
 We propose an interactive demonstration that highlights the benefits
 of fast, easy experiment reproduction. Throughout the session, the
 presenter refers to two personas---represented visually with
-placards---to help viewers maintain context for various scenario:
+placards---to help viewers maintain context during various scenario:
 
 \begin{itemize}[topsep=0pt, itemsep=0pt]
 \item \emph{Arya}. A researcher who has published state-of-the-art
@@ -172,7 +173,7 @@ supports reproducibility in two areas:
 
 \begin{itemize}[topsep=0pt, itemsep=0pt]
 \item \emph{Influence}. Work that is easier to reproduce is more
-  likely to influence others, other factors held constant.
+  likely to influence others, other factors being equal.
 
 \item \emph{Productivity}. Tools that support fast and easy
   reproducibility are applicable to research in general: more
@@ -182,8 +183,8 @@ supports reproducibility in two areas:
 
 \textbf{Scenarios}. The demonstration is structured flexibly to
 encourage questions, input, and redirection from the audience. While
-presented below as a natural sequence, scenarios are presented and
-discussed in any order according to audience expectation and interest.
+presented below as a sequence, scenarios are presented and discussed
+in any order according to audience interest.
 
 \begin{itemize}[topsep=0pt, itemsep=0pt]
 \item \emph{Arya} uses Guild to run training and validation
@@ -194,16 +195,16 @@ discussed in any order according to audience expectation and interest.
 \item \emph{Clegane} conducts a survey of related work, reproducing
   published results where possible. He clones Arya's repository and
   uses Guild to reproduce her findings. He further experiments with
-  changes to Arya's model and hyperparameters to build a stronger
-  intuition for his summary.
+  changes to Arya's model and hyperparameters to develop a deeper
+  understanding for his summary.
 
-\item \emph{Clegane} contacts Arya to discuss her work and answer
+\item \emph{Clegane} contacts Arya to discuss her work and present
   questions he has based on his own experiments. He uses Guild to
-  publish trials to S3 where Arya can access them.
+  publish hist results to S3 where Arya can access them.
 
 \item \emph{Arya} pulls Clegane's results from S3 and uses Guild to
-  study the differences between her results and Clegane's and uses
-  this information to answer his questions.
+  study the differences between her results and his. She uses this
+  information to answer Clegane's questions.
 
 \item \emph{Clegane}, to promote his field of study and encourage
   further research, creates an installable package that others can use
@@ -212,9 +213,9 @@ discussed in any order according to audience expectation and interest.
 
 \subsection{Equipment}
 
-The presenter supplies a laptop with HDMI and brings supporting
-graphical placards and other visual aids to reference during
-scenarios. To avoid problems with network connectivity, the
+The presenter supplies a laptop with an HDMI interface and brings
+supporting graphical placards and other visual aids to reference
+during scenarios. To avoid problems with network connectivity, the
 demonstration is disconnected from the network. Demonstrations of
 networking features (e.g. copying experiment results to and from S3)
 are run locally over a proxy, but are nonetheless live and unmocked.
