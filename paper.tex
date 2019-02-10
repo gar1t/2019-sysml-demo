@@ -71,9 +71,9 @@ three ways ways:
 \item Project maintainers create Python \emph{packages} that are
   uploaded to PyPI and installed by others for reproducing results.
 
-\item Users \emph{publish experiment results} to remote locations over
-  SSH or cloud services like S3 where they are securely studied and
-  compared by others.
+\item Users \emph{publish experiment results} to secure, remote
+  locations over SSH or cloud services like S3 where they are studied
+  and compared by others.
 \end{itemize}
 
 \textbf{Command Line Interface, Visualization, API.} Guild's primary
@@ -130,9 +130,8 @@ system software such as databases, container management systems, and
 job schedulers.
 
 Each requirement that a tool imposes on a user presents a barrier to
-the goal of systematic machine learning. In some cases, researchers
-and engineers may view the cost of supporting reproducibility to
-outweigh the benefits.
+the goal of systematic machine learning. In some cases, users may view
+the cost of supporting reproducibility to outweigh the benefits.
 
 To encourage systematic machine learning, Guild runs unmodified
 learning scripts without requiring the installation and maintenance of
@@ -146,8 +145,8 @@ $ guild run train.py n_layers=2 lr=1e-4
 \end{verbatim}}
 
 With this command, the user generates a unique experiment with the
-specified hyperparameters, which can be analyzed and compared to other
-trials.
+specified hyperparameters, which can be analyzed, compared to other
+trials, and shared.
 
 Guild additionally supports easy packaging, distribution, and
 installation of research work in the support of machine learning
@@ -173,7 +172,7 @@ supports reproducibility in two areas:
 
 \begin{itemize}[topsep=0pt, itemsep=0pt]
 \item \emph{Influence}. Work that is easier to reproduce is more
-  likely to influence others, other factors being equal.
+  likely to influence others.
 
 \item \emph{Productivity}. Tools that support fast and easy
   reproducibility are applicable to research in general: more
@@ -183,8 +182,8 @@ supports reproducibility in two areas:
 
 \textbf{Scenarios}. The demonstration is structured flexibly to
 encourage questions, input, and redirection from the audience. While
-presented below as a sequence, scenarios are presented and discussed
-in any order according to audience interest.
+listed below sequentially, scenarios are presented and discussed in
+any order according to audience interest.
 
 \begin{itemize}[topsep=0pt, itemsep=0pt]
 \item \emph{Arya} uses Guild to run training and validation
@@ -195,16 +194,16 @@ in any order according to audience interest.
 \item \emph{Clegane} conducts a survey of related work, reproducing
   published results where possible. He clones Arya's repository and
   uses Guild to reproduce her findings. He further experiments with
-  changes to Arya's model and hyperparameters to develop a deeper
-  understanding for his summary.
+  changes to Arya's model and hyperparameters to deepen his
+  understanding for his report.
 
 \item \emph{Clegane} contacts Arya to discuss her work and present
   questions he has based on his own experiments. He uses Guild to
   publish hist results to S3 where Arya can access them.
 
 \item \emph{Arya} pulls Clegane's results from S3 and uses Guild to
-  study the differences between her results and his. She uses this
-  information to answer Clegane's questions.
+  study the differences between their results and uses this
+  information to answer his questions.
 
 \item \emph{Clegane}, to promote his field of study and encourage
   further research, creates an installable package that others can use
