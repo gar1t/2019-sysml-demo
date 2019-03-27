@@ -1,0 +1,28 @@
+- model: very-important-model
+  description: State of the art for Next Big Thing
+  operations:
+    train:
+      description: Train model
+      main: train
+      flags:
+        dropout:
+          description: Dropout rate
+        lr:
+          description: Learning rate
+        batch_size:
+          description: Training batch size
+        epochs:
+          description: Number of epochs to train
+
+    key-findings:
+      description: Key findings for dropout between 0.8 and 0.95
+      steps:
+        - run: train dropout=0.8
+        - run: train dropout=0.9
+        - run: train dropout=0.95
+
+    dropout-search:
+      description: Train with a range of dropout
+      steps:
+        - run: train dropout=[0.1,0.2,0.3,0.4,0.5,0.6,
+                              0.7,0.8,0.9,0.95,0.99]
