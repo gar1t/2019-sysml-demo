@@ -6,7 +6,7 @@ from tensorflow.keras.optimizers import RMSprop
 from tensorflow.keras.utils import to_categorical
 
 batch_size = 128
-epochs = 5
+epochs = 3
 dropout = 0.2
 lr = 0.001
 
