@@ -1,2 +1,4 @@
 .arya
 .clegane
+build
+*.egg-info

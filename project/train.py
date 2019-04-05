@@ -5,6 +5,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import RMSprop
 from tensorflow.keras.utils import to_categorical
 
+from tensorflow import set_random_seed as tf_seed
+from numpy.random import seed as npbl_seed
+
 batch_size = 128
 epochs = 3
 dropout = 0.2
